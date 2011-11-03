@@ -1,3 +1,9 @@
+# revision 21292
+# category Package
+# catalog-ctan /macros/latex/contrib/gmdoc
+# catalog-date 2011-02-02 20:24:54 +0100
+# catalog-license lppl
+# catalog-version 0.993
 Name:		texlive-gmdoc
 Version:	0.993
 Release:	1
@@ -52,6 +58,7 @@ files are provided that may be used to typeset the LaTeX Base.
 %doc %{_texmfdistdir}/doc/latex/gmdoc/basedrivers/docstrip_gmdoc.tex
 %doc %{_texmfdistdir}/doc/latex/gmdoc/basedrivers/source2e_gmdoc.tex
 %doc %{_texmfdistdir}/doc/latex/gmdoc/gmdoc.pdf
+%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -62,3 +69,5 @@ files are provided that may be used to typeset the LaTeX Base.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar makeindex tex doc %{buildroot}%{_texmfdistdir}
+mkdir -p %{buildroot}%{_tlpkgobjdir}
+cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
