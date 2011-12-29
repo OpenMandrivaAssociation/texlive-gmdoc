@@ -17,8 +17,6 @@ BuildArch:	noarch
 BuildRequires:	texlive-tlpkg
 Requires(pre):	texlive-tlpkg
 Requires(post):	texlive-kpathsea
-Conflicts:	texlive-texmf <= 20110705-3
-Conflicts:	texlive-doc <= 20110705-3
 
 %description
 A LaTeX package and an example class for documenting (La)TeX
@@ -32,20 +30,12 @@ author's three ''basic' packages: gmutils, gmverb and gmiflink.
 As a bonus (and as an example of doc compatibility) driver
 files are provided that may be used to typeset the LaTeX Base.
 
-%pre
-    %_texmf_mktexlsr_pre
-
 %post
-    %_texmf_mktexlsr_post
-
-%preun
-    if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_pre
-    fi
+    %{_sbindir}/texlive.post
 
 %postun
     if [ $1 -eq 0 ]; then
-	%_texmf_mktexlsr_post
+	%{_sbindir}/texlive.post
     fi
 
 #-----------------------------------------------------------------------
@@ -59,7 +49,6 @@ files are provided that may be used to typeset the LaTeX Base.
 %doc %{_texmfdistdir}/doc/latex/gmdoc/basedrivers/docstrip_gmdoc.tex
 %doc %{_texmfdistdir}/doc/latex/gmdoc/basedrivers/source2e_gmdoc.tex
 %doc %{_texmfdistdir}/doc/latex/gmdoc/gmdoc.pdf
-%doc %{_tlpkgobjdir}/*.tlpobj
 
 #-----------------------------------------------------------------------
 %prep
@@ -70,5 +59,3 @@ files are provided that may be used to typeset the LaTeX Base.
 %install
 mkdir -p %{buildroot}%{_texmfdistdir}
 cp -fpar makeindex tex doc %{buildroot}%{_texmfdistdir}
-mkdir -p %{buildroot}%{_tlpkgobjdir}
-cp -fpa tlpkg/tlpobj/*.tlpobj %{buildroot}%{_tlpkgobjdir}
