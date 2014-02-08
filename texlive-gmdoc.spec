@@ -6,7 +6,7 @@
 # catalog-version 0.993
 Name:		texlive-gmdoc
 Version:	0.993
-Release:	2
+Release:	3
 Summary:	Documentation of LaTeX packages
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/gmdoc
