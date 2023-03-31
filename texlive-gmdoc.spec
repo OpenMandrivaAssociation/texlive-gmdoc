@@ -1,6 +1,6 @@
 Name:		texlive-gmdoc
 Version:	21292
-Release:	1
+Release:	2
 Summary:	Documentation of LaTeX packages
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/gmdoc
